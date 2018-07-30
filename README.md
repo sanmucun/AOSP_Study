@@ -3,7 +3,7 @@ Android TV emulator
 
 1.运行在aosp android 7.1.1_r1中；
 
-2.clone 数据后，放在\aosp\device；
+2.clone 数据后，放在\aosp\device\unisoc；
 
 3.编译执行如下命令：
     source build/envsetup.sh
