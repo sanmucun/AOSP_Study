@@ -18,7 +18,7 @@
 # are specific to the emulator.
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := device/unisoc/atv-kernel/kernel-qemu-armv7
+	LOCAL_KERNEL := device/unisoc/atv-kernel/zImage
 else
 	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif

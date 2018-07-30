@@ -5,7 +5,7 @@
 
 # The generic product target doesn't have any hardware-specific pieces.
 TARGET_NO_BOOTLOADER := true
-#TARGET_NO_KERNEL := true # add by kai.wang
+#TARGET_NO_KERNEL := true
 TARGET_ARCH := arm
 
 # Note: we build the platform images for ARMv7-A _without_ NEON.
@@ -54,8 +54,9 @@ BOARD_CACHEIMAGE_PARTITION_SIZE := 69206016
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 512
 TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
+TARGET_RECOVERY_FSTAB := device/unisoc/atv/recovery.fstab
 
-BOARD_SEPOLICY_DIRS += device/unisoc/sepo
+BOARD_SEPOLICY_DIRS += device/unisoc/atv/sepo
 
 ifeq ($(TARGET_PRODUCT),sdk)
   # include an expanded selection of fonts for the SDK.
