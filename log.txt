@@ -1,0 +1,11 @@
+commit 267491bae12f5230fa34660d9daf5adadb62f02a
+Author: sanmucun <wangkai_shiwo@163.com>
+Date:   Mon Jul 30 15:04:46 2018 +0800
+
+    fix a bug: adb - devices off
+
+commit 7febae5b58c3e0c4bfb60ca82ffa6965bf41329a
+Author: sanmucun <wangkai_shiwo@163.com>
+Date:   Thu Jul 26 11:34:34 2018 +0800
+
+    1.add tv device;2.add kernel, just from aosp/prebuid;3.modify sepoliy for android emulator tv.
