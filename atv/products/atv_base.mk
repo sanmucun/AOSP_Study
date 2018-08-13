@@ -43,6 +43,7 @@ PRODUCT_PACKAGES += \
     libstagefright_soft_amrwbenc \
     libstagefright_soft_avcdec \
     libstagefright_soft_avcenc \
+    libstagefright_soft_flacdec \
     libstagefright_soft_flacenc \
     libstagefright_soft_g711dec \
     libstagefright_soft_gsmdec \
@@ -84,7 +85,6 @@ PRODUCT_PACKAGES += \
     SystemUI \
     librs_jni \
     audio.primary.default \
-    audio_policy.default \
     clatd \
     clatd.conf \
     local_time.default \
@@ -123,7 +123,35 @@ PRODUCT_COPY_FILES += \
 # To enable access to /dev/dvb*
 #BOARD_SEPOLICY_DIRS += device/unisoc/atv/sepolicy
 
-$(call inherit-product-if-exists, frameworks/base/data/sounds/AllAudio.mk)
+# This property defines the tutorial content for this device
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.tutorials_content.android=android8
+
+# Content for ATV Tutorials / Post-Setup Tour
+PRODUCT_COPY_FILES += \
+    device/google/atv/tutorial-library-google.zip.etag:system/media/tutorial-library-google.zip.etag
+
+PRODUCT_COPY_FILES += \
+    device/google/atv/tutorial-library-google.zip:system/media/tutorial-library-google.zip
+    
+# Copy .kl file for generic voice remotes
+PRODUCT_COPY_FILES += \
+    device/google/atv/Generic.kl:system/usr/keylayout/Generic.kl
+
+	
+PRODUCT_PROPERTY_OVERRIDES += \
+	rild.libpath=/vendor/lib/libreference-ril.so
+
+# Note: the following lines need to stay at the beginning so that it can
+# take priority  and override the rules it inherit from other mk files
+# see copy file rules in core/Makefile
+PRODUCT_COPY_FILES += \
+    development/sys-img/advancedFeatures.ini.arm:advancedFeatures.ini \
+    prebuilts/qemu-kernel/arm/3.18/kernel-qemu2:kernel-ranchu \
+    device/generic/goldfish/fstab.ranchu.arm:root/fstab.ranchu \
+    device/generic/goldfish/fstab.ranchu.early.arm:root/fstab.ranchu.early
+		
+$(call inherit-product-if-exists, frameworks/base/data/sounds/AudioTv.mk)
 $(call inherit-product-if-exists, external/svox/pico/lang/all_pico_languages.mk)
 $(call inherit-product-if-exists, frameworks/base/data/fonts/fonts.mk)
 $(call inherit-product-if-exists, external/google-fonts/dancing-script/fonts.mk)

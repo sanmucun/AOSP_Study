@@ -1,3 +1,9 @@
+commit 46c33abfddc001c39fb3f57d7732d673f1e1c709
+Author: sanmucun <wangkai_shiwo@163.com>
+Date:   Wed Aug 1 15:35:21 2018 +0800
+
+    use new fstabl.goldfish; avd can load ramdisk-recovery.img
+
 commit 267491bae12f5230fa34660d9daf5adadb62f02a
 Author: sanmucun <wangkai_shiwo@163.com>
 Date:   Mon Jul 30 15:04:46 2018 +0800

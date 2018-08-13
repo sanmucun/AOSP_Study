@@ -28,4 +28,5 @@ LOCAL_PATH := $(call my-dir)
 # their rules should be written here.
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
+
 endif
